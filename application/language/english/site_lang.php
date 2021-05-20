@@ -265,3 +265,4 @@ $lang['terms_and_conditions'] = "Terms & Conditions";
 $lang['edit_invoice'] = "Edit Invoice";
 $lang['download'] = "Download";
 $lang['send_email'] = "Send Email";
+$lang['leads'] = "Leads";

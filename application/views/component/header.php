@@ -135,6 +135,30 @@
 
 <body>
 
+    <?php if ($this->session->flashdata('success')): ?>
+    <div class="m-b-15">
+        <div class="alert alert-success alert-dismissable">
+            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+            <p>
+                <i class="icon fa fa-check"></i>
+                <?php echo $this->session->flashdata('success'); ?>
+            </p>
+        </div>
+    </div>
+    <?php endif; ?>
+
+    <!--print custom error message-->
+    <?php if ($this->session->flashdata('error')): ?>
+    <div class="m-b-15">
+        <div class="alert alert-danger alert-dismissable">
+            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+            <p>
+                <i class="icon fa fa-times"></i>
+                <?php echo $this->session->flashdata('error'); ?>
+            </p>
+        </div>
+    </div>
+    <?php endif; ?>
     <!--Hero ====================================== -->
     <header class="hero container-fluid border-bottom">
         <nav class="hero-nav container px-4 px-lg-0 mx-auto">
@@ -221,8 +245,11 @@
         aria-hidden="true">
         <div class="modal-dialog col-md-10 col-lg-6" role="document">
             <div class="modal-content ss-lm-wizard">
-                <form method="post" action="#">
-                    <input type="hidden" id="refrence_url" name="refrence_url" value="www.connectpackers.com/">
+                <form method="post" action="<?php echo base_url('postenquiry');?>">
+
+
+                    <?php  echo form_open('home/postenquiry', array('role'=>'form')); ?>
+                    <input type="hidden" id="refrence_url" name="refrence_url" value="#">
                     <div class="modal-header ss-lm-wizard-header">
                         <div class="ss-lm-wizard-header-content">
                             <button type="button" class="btn-back" aria-label="Back"><i
@@ -413,7 +440,7 @@
                             <button type="submit" class="btn btn-submit" name="lm_submit">Submit</button>
                         </div>
                     </div>
-                </form>
+                    <?php echo form_close(); ?>
             </div>
         </div>
     </div>
